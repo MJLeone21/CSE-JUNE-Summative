@@ -1,0 +1,112 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title FCA Refugee Support Program
+    link(rel="icon" href="assets/fca-logo.jpg" type="image/jpeg")
+    link(rel="stylesheet" href="css/style.css")
+  body
+
+    //-LANDING PAGE
+    section#landingPage.landing
+      .logo-circle
+        img(src="assets/fca-logo.jpg" alt="FCA logo")
+      h1.program-name Refugee Support Program
+      button#goToFormBtn.btn.btn-register.landing-btn(type="button") Register
+
+    //-REGISTRATION FORM PAGE
+    section#formPage.form-page.hidden
+
+      aside.side-panel
+        .logo-circle
+          img(src="assets/fca-logo.jpg" alt="FCA logo")
+        h2.program-name Refugee Support Program
+
+      main.form-panel
+        h1.form-title Beneficiary Registration Form
+
+        #successAlert.success-alert.hidden(role="alert")
+          span Beneficiary registered successfully
+          button#closeAlertBtn.close-alert-btn(type="button" aria-label="Close") ×
+
+        form#beneficiaryForm(novalidate)
+
+          .form-row
+            .form-group
+              label(for="firstName") First Name #[span.required *]
+              input#firstName(type="text" name="firstName" placeholder="Enter your First name" autocomplete="off")
+              span.field-message#msg-firstName
+            .form-group
+              label(for="lastName") Last name #[span.required *]
+              input#lastName(type="text" name="lastName" placeholder="Enter your Last name" autocomplete="off")
+              span.field-message#msg-lastName
+
+          .form-row
+            .form-group
+              label(for="dateOfBirth") Date of birth #[span.required *]
+              input#dateOfBirth(type="text" name="dateOfBirth" placeholder="YYYY / MM / DD" autocomplete="off")
+              span.field-message#msg-dateOfBirth
+            .form-group
+              label(for="placeOfBirth") Place of Birth #[span.required *]
+              input#placeOfBirth(type="text" name="placeOfBirth" placeholder="Enter your place of residence" autocomplete="off")
+              span.field-message#msg-placeOfBirth
+
+          .form-group.full
+            label Gender
+            .gender-box
+              label.radio-label
+                input(type="radio" name="gender" value="male")
+                span.radio-custom
+                |  Male
+              label.radio-label
+                input(type="radio" name="gender" value="female" checked)
+                span.radio-custom
+                |  Female
+
+          .form-row
+            .form-group
+              label(for="nationality") Nationality #[span.required *]
+              select#nationality(name="nationality")
+                option(value="" selected disabled) -- Select Nationality --
+                option(value="Ugandan") Ugandan
+                option(value="Kenyan") Kenyan
+                option(value="Tanzanian") Tanzanian
+                option(value="Burundian") Burundian
+                option(value="Rwandese") Rwandese
+                option(value="Somali") Somali
+                option(value="South Sudanese") South Sudanese
+              span.field-message#msg-nationality
+            .form-group
+              label(for="maritalStatus") Marital status #[span.required *]
+              select#maritalStatus(name="maritalStatus")
+                option(value="" selected disabled) -- Select Marital status --
+                option(value="Single") Single
+                option(value="Married") Married
+                option(value="Divorced") Divorced
+                option(value="Widowed") Widowed
+                option(value="Separated") Separated
+              span.field-message#msg-maritalStatus
+
+          .form-row
+            .form-group
+              label(for="settlementCamp") Settlement camp #[span.required *]
+              select#settlementCamp(name="settlementCamp")
+                option(value="" selected disabled) -- Select settlement camp --
+                option(value="Gulu settlement camp") Gulu settlement camp
+                option(value="Arua settlement camp") Arua settlement camp
+                option(value="Mbarara settlement camp") Mbarara settlement camp
+                option(value="Kasese settlement camp") Kasese settlement camp
+                option(value="Busia settlement camp") Busia settlement camp
+                option(value="Mbale settlement camp") Mbale settlement camp
+                option(value="Kigezi settlement camp") Kigezi settlement camp
+              span.field-message#msg-settlementCamp
+            .form-group
+              label(for="dateOfJoiningCamp") Date of joining Settlement camp #[span.required *]
+              input#dateOfJoiningCamp(type="text" name="dateOfJoiningCamp" placeholder="YYYY / MM / DD" autocomplete="off")
+              span.field-message#msg-dateOfJoiningCamp
+
+          .form-actions
+            button.btn.btn-register.form-submit-btn(type="submit") Register
+
+    script(src="js/app.js")
